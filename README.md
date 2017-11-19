@@ -1,46 +1,49 @@
 # Design Document for Language Detection
-### Matthew Lallo
-### noah_daniels@uri.edu
+### Matthew Lallo and Nathan Potter
+### malallo@my.uri.edu
 
 ## Problems to solve
 
-- 
+# Milestone 1
+- Implementation of Language Detection needs to keep track of trigrams in the file.
+- Said trigrams are then sorted into vectors in order from "   " to "zzz" the frequency of each trigram.
+
+# Milestone 2
+- A function to be able to read through files to get the trigram frequencies.
+- A method to compare a specific file to "training files" to figure out what language said file is.
+- Some way of testing correctness.
 
 ## Classes needed
 
-- DNA class to represent a genomic sequence and its header
-	- private instance variables for sequence and header
-		- both are `std::string`s
-	- Needs a constructor method that allows creating an object from a FASTA file
-	- Needs accessors for the instance variables on which sorting comparisons need to be done
-	- Needs some way to convert to a string for pretty-printing. `string toFasta()` to format as FASTA should work.
+ No classes needed
 
 ## Other functions
-
-- `swap()` to exchange two elements of a vector. Should be templated, so must be defined in a header file.
-- Two comparison functions for DNA objects, one for sequence length and one for lexicographic header ordering.
-- `sort()`, a non-recursive sorting function.
-	- takes as arguments a vector of DNA objects, and a comparison function.
-	- Returns a sorted copy of the vector.
-- `quicksort()`, a recursive in-place sorting function.
-	- In addition to the vector (passed by reference) and comparison function, takes two index parameters to indicate which slice of the vector is being sorted.
-	- Mutates the vector contents; returns nothing.
-- `partition()`, an implementation of the Hoare partition algorithm.
-	- Takes vector reference, comparison function, and index parameters.
-	- Returns the new index of the pivot after partitioning.
-- `main()` to test quicksort.
-	- Create several DNA objects with different-length sequences and different headers
-	- Sort them with both comparison functions
-	- For each element of the sorted vector, in order, print out the results of `toFasta()`
+- `FileCheck()` to make sure a file only has what the trigrams takes (excluding \n)
+- `frequency()` to find the frequency of trigrams.
+  - Takes the input of 2 strings, one being a specific trigram, and the other string holds the string that the trigrams are being collected from.
+- `trigram()` to organize the frequencies of trigrams.
+  - Takes the input of a string
+  - Uses the helper function `frequency()`
+  - Creates a vector with each possible trigram from "   " to "zzz"
+  - Creates another vector to push back, in order, how many times each frequency occurs
+- `ReadFile()` to go through a file and create a frequency of the trigrams within it.
+  - takes a sting input that is a file name
+  - uses infile and checks for anything not in the trigrams (punctuation, capital letters, etc.)
+  - outputs the frequency
+- `compfreq()` to compare the frequencies between a training text and the actual text.
+  - uses ReadFile to get the frequencies for each language it was trained for in relation to the string in question.
+  - gets the percentages of each frequency
+  - returns the name of the language with the highest similarity in trigrams
+- `main()` to run/test compfreq.
+	- Create/Access files with example languages for comparison
+	- Create/Access another file to have compared to the other languages to see if there is a match
 	- Inspect results by hand.
 
 ## Files needed
 
-- `dna.h` and `dna.cpp` for DNA class
-- `swap.h` for templated swap
-- `sort.h` as public interface for sort function
-- `sort.cpp` as implementation of quicksort
-- `main.cpp` to test sorting behavior
+- Any training files for languages such as Spanish, French, Russian, etc.
+- a file containing text in the language of one of the training files.
+- `main.cpp` to run/test compfreq and check the results
 
 ## Libraries needed
 
@@ -50,5 +53,5 @@
 
 ## Compile script
 
-- Will need to compile sort.cpp, dna.cpp, and main.cpp
+- Will need to compile main.cpp
 - Will need a flag to skip compilation of main.cpp, and only produce an object file.
