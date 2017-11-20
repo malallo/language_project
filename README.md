@@ -1,6 +1,6 @@
 # Design Document for Language Detection
 ### Matthew Lallo and Nathan Potter
-### malallo@my.uri.edu
+### malallo@my.uri.edu and nathan_potter@my.uri.edu
 
 ## Problems to solve
 
@@ -53,5 +53,5 @@
 
 ## Compile script
 
-- Will need to compile main.cpp
-- Will need a flag to skip compilation of main.cpp, and only produce an object file.
+- Will need to compile main.cpp and create different commands depending on milestone.
+- Different "main.cpp"s will be compiled for each milestone.
