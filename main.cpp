@@ -160,4 +160,8 @@ int main(int argc, char *argv[]){
   }
   std::string text=argv[1];
   frequency (text, v);
+  for (int z=0; z<(int)v.size(), z++){
+    std::cout << v[z] << ' ';
+  }
+  std::cout<<"\n"
 }
