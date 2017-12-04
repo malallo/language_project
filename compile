@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ######################################################
-#   Compiles cqesar.cpp into the excutable caesar    #
+#   Compiles revcomp.cpp into the excutable revcomp  #
 ######################################################
 
 set -e    # halt on first error
@@ -17,4 +17,4 @@ rm -f *.o
 
 # compile
 
-$CPP $FLAGS -o caesar caesar.cpp
+$CPP $FLAGS -o frequencies frequencies.cpp
