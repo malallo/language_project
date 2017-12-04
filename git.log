@@ -1,0 +1,79 @@
+commit e09409a3d937123185940eacedb72616a7ed8ffb
+Merge: 9478692 185bf91
+Author: unknown <unknown@example.com>
+Date:   Sun Dec 3 20:38:25 2017 -0500
+
+    Merge branch 'Milestone1'
+
+commit 185bf91ea781a04d47f77d7b9be8a7e92e1242b8
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Dec 3 20:37:55 2017 -0500
+
+    Fixed compile script, compiled, ran tests
+    
+    Eyes hurt, but the few tests seem to work
+
+commit 63f6712c9fed60be2ce85b5885d821f5918f0ef0
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Dec 3 17:23:09 2017 -0500
+
+    Compile file added
+    
+    Still unsure about this part
+
+commit cf18781a925576edf7932a25c27c03f6ad8ef615
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Dec 3 17:22:30 2017 -0500
+
+    Renamed .cpp file
+    
+    Might do what I think it does with compiling
+
+commit 808bb51b84811628ae6e7d173262fc959c0b2800
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Dec 3 17:17:53 2017 -0500
+
+    Added print statement
+    
+    Hopefully works
+
+commit 4160bb96e8f16417be982bf68b98edd44fc1c05a
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Dec 3 17:09:08 2017 -0500
+
+    Skeleton for Frequency added
+
+commit 9478692484d97763a966d5d2cdad40472546080b
+Merge: 01210df 207d7b2
+Author: unknown <unknown@example.com>
+Date:   Mon Nov 20 16:35:45 2017 -0500
+
+    Merge branch 'Design'
+
+commit 207d7b2f4c8cc547dc2cae23c902492581034054
+Author: Unknown <malallo@my.uri.edu>
+Date:   Mon Nov 20 14:17:51 2017 -0500
+
+    Finished Design Document
+    
+    Added Nate's email, finishing touches on compiling
+
+commit ae6af45ac2579057c7af33f1a5bfdb25808942b6
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Nov 19 17:58:56 2017 -0500
+
+    Design draft mostly done
+
+commit 7cf460083ae16c58ce1a03ba3a087b3ba46425ff
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Nov 19 12:54:14 2017 -0500
+
+    Format of design document to follow added
+    
+    Copied the design.md from Sakai
+
+commit 01210df7cb0cb0509adaaba0cdda8a995c4765d8
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Nov 19 12:45:58 2017 -0500
+
+    Initial commit
