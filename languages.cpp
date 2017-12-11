@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <fstream>
-#include <sstream>
+#include <cmath>
 
 void AddFreq(int a, int b, int c, int position, int letter) {
   if (position==0) a=letter;
@@ -11,23 +11,63 @@ void AddFreq(int a, int b, int c, int position, int letter) {
   if (position==2) c=letter;
 }
 
+bool charcheck(char ch) {
+  switch (ch) {
+    case ' ': break;
+    case 'a': break;
+    case 'b': break;
+    case 'c': break;
+    case 'd': break;
+    case 'e': break;
+    case 'f': break;
+    case 'g': break;
+    case 'h': break;
+    case 'i': break;
+    case 'j': break;
+    case 'k': break;
+    case 'l': break;
+    case 'm': break;
+    case 'n': break;
+    case 'o': break;
+    case 'p': break;
+    case 'q': break;
+    case 'r': break;
+    case 's': break;
+    case 't': break;
+    case 'u': break;
+    case 'v': break;
+    case 'w': break;
+    case 'x': break;
+    case 'y': break;
+    case 'z': break;
+    case '\n': break;
+    /*
+    Return an empty string if we see an invalid character
+    */
+    default: return false;
+  }
+  return true;
+}
+
 std::vector<int> frequency(std::string filename) {
   std::vector<int> v;
   for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
     v.push_back(0);
   }
-  ifstream infile(filename);
-  string Text= "";
+  std::ifstream infile(filename);
+  if (infile.fail()) exit(EXIT_FAILURE);
+  std::string Text= "";
   char ch;
   while (infile.get(ch)) {
-    text += ch;
+    if (charcheck(ch)==false) exit(EXIT_FAILURE);
+    Text += ch;
   }
   infile.close();
-  for (int i = 0; i < (int) text.length() - 2; i++) {
+  for (int i = 0; i < (int) Text.length() - 2; i++) {
 //Creates a substring with the 3 characters needed
-    std::string test=text.substr(i,3);
-    int a,b,c=0;
-    for (int j=0; j < 3; j++){
+    std::string test=Text.substr(i,3);
+    int a = 0, b = 0, c = 0;
+    for (int j=0; j < 3; j++) {
 //Combined the 2 checks in one. First matches the character, then checks which value to set.
       if (test[j]==' ') {
       AddFreq(a, b, c, j, 0);
@@ -140,29 +180,42 @@ std::vector<int> frequency(std::string filename) {
     int location=(a*27*27)+(b*27)+c; //Didn't bother with exponents, but added all three values at once
     v[location]= v[location]+1;
   }
+  return v;
 }
 
-double compfreq(std::vector<int> A, std::vector<int> B) {
-  int numerator=0;
-  
+long long compfreq(std::vector<int> A, std::vector<int> B) {
+  unsigned long long int numerator=0;
+  long long denomA = 0.0, denomB = 0.0;
   for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
     numerator += (A[i]*B[i]);
   }
+  std::cout<<numerator<<std::endl;
+  for (int i=0; i<19683; i++) {
+    denomA += (A[i]*A[i]);
+    denomB += (B[i]*B[i]);
+  }
+  std::cout<<denomA<<std::endl;
+  double denom = sqrt (denomA);
+  denom = denom * sqrt (denomB);
+  std::cout<<denom<<std::endl;
+  return ((double)numerator/denom);
 }
 
 int main(int argc, char *argv[]) {
   if (argc<2) {//Simple check
-    exit(EXIT_FAILURE);
+    throw std::runtime_error("Not enough input.");
   }
-  double max=0.00;
+  long long max=0.00;
   int spot=0;
-  std::vector<int>test = frequency(argv[argc-1])
-  for (int q=1; q<argc-1; q++)
+  std::vector<int>test = frequency(argv[argc-1]);
+  for (int q=1; q<argc-1; q++){
     std::vector<int> v = frequency(argv[q]);
-    double check = compfreq(v, test);
-    if (check>max){
+    long long check = compfreq(v, test);
+    std::cout<<check<<std::endl;
+    if (check>=max){
       max=check;
       spot=q;
     }
-  std::cout<<"\n";//Final character to change the line like the anouncement said
+  }
+  std::cout<<argv[spot]<<std::endl;
 }
