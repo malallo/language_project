@@ -2,6 +2,8 @@
 #include <vector>
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 void AddFreq(int a, int b, int c, int position, int letter) {
   if (position==0) a=letter;
@@ -9,7 +11,18 @@ void AddFreq(int a, int b, int c, int position, int letter) {
   if (position==2) c=letter;
 }
 
-std::vector<int> frequency(std::string text, std::vector<int> v) {
+std::vector<int> frequency(std::string filename) {
+  std::vector<int> v;
+  for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
+    v.push_back(0);
+  }
+  ifstream infile(filename);
+  string Text= "";
+  char ch;
+  while (infile.get(ch)) {
+    text += ch;
+  }
+  infile.close();
   for (int i = 0; i < (int) text.length() - 2; i++) {
 //Creates a substring with the 3 characters needed
     std::string test=text.substr(i,3);
@@ -127,19 +140,29 @@ std::vector<int> frequency(std::string text, std::vector<int> v) {
     int location=(a*27*27)+(b*27)+c; //Didn't bother with exponents, but added all three values at once
     v[location]= v[location]+1;
   }
-  return v;
 }
 
+double compfreq(std::vector<int> A, std::vector<int> B) {
+  int numerator=0;
+  
+  for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
+    numerator += (A[i]*B[i]);
+  }
+}
 
 int main(int argc, char *argv[]) {
   if (argc<2) {//Simple check
     exit(EXIT_FAILURE);
   }
-  std::vector<int> v;
-  for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
-    v.push_back(0);
-  }
-  std::string text=argv[1];
-  frequency (text, v);
+  double max=0.00;
+  int spot=0;
+  std::vector<int>test = frequency(argv[argc-1])
+  for (int q=1; q<argc-1; q++)
+    std::vector<int> v = frequency(argv[q]);
+    double check = compfreq(v, test);
+    if (check>max){
+      max=check;
+      spot=q;
+    }
   std::cout<<"\n";//Final character to change the line like the anouncement said
 }
