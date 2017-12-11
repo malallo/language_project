@@ -68,113 +68,140 @@ std::vector<int> frequency(std::string filename) {
     std::string test=Text.substr(i,3);
     int a = 0, b = 0, c = 0;
     for (int j=0; j < 3; j++) {
-//Combined the 2 checks in one. First matches the character, then checks which value to set.
-      if (test[j]==' ') {
-      AddFreq(a, b, c, j, 0);
+      if (test[j]==' ') {//Combined the 2 checks in one. First matches the character, then checks which value to set.
+        if (j==0) a=0;
+        if (j==1) b=0;
+        if (j==2) c=0;
       }
-
       if (test[j]=='a') {
-        AddFreq(a, b, c, j, 1);
+        if (j==0) a=1;
+        if (j==1) b=1;
+        if (j==2) c=1;
       }
-
       if (test[j]=='b') {
-        AddFreq(a, b, c, j, 2);
+        if (j==0) a=2;
+        if (j==1) b=2;
+        if (j==2) c=2;
       }
-
       if (test[j]=='c') {
-        AddFreq(a, b, c, j, 3);
+        if (j==0) a=3;
+        if (j==1) b=3;
+        if (j==2) c=3;
       }
-
       if (test[j]=='d') {
-        AddFreq(a, b, c, j, 4);
+        if (j==0) a=4;
+        if (j==1) b=4;
+        if (j==2) c=4;
       }
-
       if (test[j]=='e') {
-        AddFreq(a, b, c, j, 5);
+        if (j==0) a=5;
+        if (j==1) b=5;
+        if (j==2) c=5;
       }
-
       if (test[j]=='f') {
-        AddFreq(a, b, c, j, 6);
+        if (j==0) a=6;
+        if (j==1) b=6;
+        if (j==2) c=6;
       }
-
       if (test[j]=='g') {
-        AddFreq(a, b, c, j, 7);
+        if (j==0) a=7;
+        if (j==1) b=7;
+        if (j==2) c=7;
       }
-
       if (test[j]=='h') {
-        AddFreq(a, b, c, j, 8);
+        if (j==0) a=8;
+        if (j==1) b=8;
+        if (j==2) c=8;
       }
-
       if (test[j]=='i') {
-        AddFreq(a, b, c, j, 9);
+        if (j==0) a=9;
+        if (j==1) b=9;
+        if (j==2) c=9;
       }
-
       if (test[j]=='j') {
-        AddFreq(a, b, c, j, 10);
+        if (j==0) a=10;
+        if (j==1) b=10;
+        if (j==2) c=10;
       }
-
       if (test[j]=='k') {
-        AddFreq(a, b, c, j, 11);
+        if (j==0) a=11;
+        if (j==1) b=11;
+        if (j==2) c=11;
       }
-
       if (test[j]=='l') {
-        AddFreq(a, b, c, j, 12);
+        if (j==0) a=12;
+        if (j==1) b=12;
+        if (j==2) c=12;
       }
-
       if (test[j]=='m') {
-        AddFreq(a, b, c, j, 13);
+        if (j==0) a=13;
+        if (j==1) b=13;
+        if (j==2) c=13;
       }
-
       if (test[j]=='n') {
-        AddFreq(a, b, c, j, 14);
+        if (j==0) a=14;
+        if (j==1) b=14;
+        if (j==2) c=14;
       }
-
       if (test[j]=='o') {
-        AddFreq(a, b, c, j, 15);
+        if (j==0) a=15;
+        if (j==1) b=15;
+        if (j==2) c=15;
       }
-
       if (test[j]=='p') {
-        AddFreq(a, b, c, j, 16);
+        if (j==0) a=16;
+        if (j==1) b=16;
+        if (j==2) c=16;
       }
-
       if (test[j]=='q') {
-        AddFreq(a, b, c, j, 17);
+        if (j==0) a=17;
+        if (j==1) b=17;
+        if (j==2) c=17;
       }
-
       if (test[j]=='r') {
-        AddFreq(a, b, c, j, 18);
+        if (j==0) a=18;
+        if (j==1) b=18;
+        if (j==2) c=18;
       }
-
       if (test[j]=='s') {
-        AddFreq(a, b, c, j, 19);
+        if (j==0) a=19;
+        if (j==1) b=19;
+        if (j==2) c=19;
       }
-
       if (test[j]=='t') {
-        AddFreq(a, b, c, j, 20);
+        if (j==0) a=20;
+        if (j==1) b=20;
+        if (j==2) c=20;
       }
-
       if (test[j]=='u') {
-        AddFreq(a, b, c, j, 21);
+        if (j==0) a=21;
+        if (j==1) b=21;
+        if (j==2) c=21;
       }
-
       if (test[j]=='v') {
-        AddFreq(a, b, c, j, 22);
+        if (j==0) a=22;
+        if (j==1) b=22;
+        if (j==2) c=22;
       }
-
       if (test[j]=='w') {
-        AddFreq(a, b, c, j, 23);
+        if (j==0) a=23;
+        if (j==1) b=23;
+        if (j==2) c=23;
       }
-
       if (test[j]=='x') {
-        AddFreq(a, b, c, j, 24);
+        if (j==0) a=24;
+        if (j==1) b=24;
+        if (j==2) c=24;
       }
-
       if (test[j]=='y') {
-        AddFreq(a, b, c, j, 25);
+        if (j==0) a=25;
+        if (j==1) b=25;
+        if (j==2) c=25;
       }
-
       if (test[j]=='z') {
-        AddFreq(a, b, c, j, 26);
+        if (j==0) a=26;
+        if (j==1) b=26;
+        if (j==2) c=26;
       }
     }
     int location=(a*27*27)+(b*27)+c; //Didn't bother with exponents, but added all three values at once
@@ -188,6 +215,7 @@ long long compfreq(std::vector<int> A, std::vector<int> B) {
   long long denomA = 0.0, denomB = 0.0;
   for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
     numerator += (A[i]*B[i]);
+    //std::cout<<A[i]<<" ";
   }
   std::cout<<numerator<<std::endl;
   for (int i=0; i<19683; i++) {
