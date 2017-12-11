@@ -237,7 +237,6 @@ int main(int argc, char *argv[]) {
   for (int q=1; q<argc-1; q++){
     std::vector<int> v = frequency(argv[q]);
     double check = compfreq(v, test);
-    std::cout<<check<<std::endl;
     if (check>max){
       max=check;
       spot=q;
