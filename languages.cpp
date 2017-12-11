@@ -210,22 +210,20 @@ std::vector<int> frequency(std::string filename) {
   return v;
 }
 
-long long compfreq(std::vector<int> A, std::vector<int> B) {
+double compfreq(std::vector<int> A, std::vector<int> B) {
   unsigned long long int numerator=0;
   long long denomA = 0.0, denomB = 0.0;
   for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
     numerator += (A[i]*B[i]);
-    //std::cout<<A[i]<<" ";
   }
-  std::cout<<numerator<<std::endl;
+
   for (int i=0; i<19683; i++) {
     denomA += (A[i]*A[i]);
     denomB += (B[i]*B[i]);
   }
-  std::cout<<denomA<<std::endl;
+
   double denom = sqrt (denomA);
   denom = denom * sqrt (denomB);
-  std::cout<<denom<<std::endl;
   return ((double)numerator/denom);
 }
 
@@ -233,14 +231,14 @@ int main(int argc, char *argv[]) {
   if (argc<2) {//Simple check
     throw std::runtime_error("Not enough input.");
   }
-  long long max=0.00;
+  double max=0.00;
   int spot=0;
   std::vector<int>test = frequency(argv[argc-1]);
   for (int q=1; q<argc-1; q++){
     std::vector<int> v = frequency(argv[q]);
-    long long check = compfreq(v, test);
+    double check = compfreq(v, test);
     std::cout<<check<<std::endl;
-    if (check>=max){
+    if (check>max){
       max=check;
       spot=q;
     }
