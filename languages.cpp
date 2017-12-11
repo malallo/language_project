@@ -5,12 +5,7 @@
 #include <fstream>
 #include <cmath>
 
-void AddFreq(int a, int b, int c, int position, int letter) {
-  if (position==0) a=letter;
-  if (position==1) b=letter;
-  if (position==2) c=letter;
-}
-
+//This Function checks for only proper characters. Returns true if nothing found
 bool charcheck(char ch) {
   switch (ch) {
     case ' ': break;
@@ -42,33 +37,40 @@ bool charcheck(char ch) {
     case 'z': break;
     case '\n': break;
     /*
-    Return an empty string if we see an invalid character
+    Return false if we see an invalid character
     */
     default: return false;
   }
   return true;
 }
 
+//Creates the integer vector with the frequencies for all trigrams in a file
 std::vector<int> frequency(std::string filename) {
   std::vector<int> v;
-  for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
+  //This loop creates the vector with all 0s
+  for (int i=0; i<19683; i++){
     v.push_back(0);
   }
+
   std::ifstream infile(filename);
   if (infile.fail()) exit(EXIT_FAILURE);
   std::string Text= "";
   char ch;
+  //Creates a string of all the characters in the file in order
   while (infile.get(ch)) {
     if (charcheck(ch)==false) exit(EXIT_FAILURE);
     Text += ch;
   }
   infile.close();
+
+//Goes through the string and gets the freequencies in the vector one at a time
   for (int i = 0; i < (int) Text.length() - 2; i++) {
 //Creates a substring with the 3 characters needed
     std::string test=Text.substr(i,3);
     int a = 0, b = 0, c = 0;
+//Reusing this despite lost points because we got errors using anything else
     for (int j=0; j < 3; j++) {
-      if (test[j]==' ') {//Combined the 2 checks in one. First matches the character, then checks which value to set.
+      if (test[j]==' ') {
         if (j==0) a=0;
         if (j==1) b=0;
         if (j==2) c=0;
@@ -204,16 +206,19 @@ std::vector<int> frequency(std::string filename) {
         if (j==2) c=26;
       }
     }
-    int location=(a*27*27)+(b*27)+c; //Didn't bother with exponents, but added all three values at once
+
+    int location=(a*27*27)+(b*27)+c;
     v[location]= v[location]+1;
   }
   return v;
 }
 
+/*Calculates the cosine similarity in order of numerator, then each part of the
+denominator. We put the denominator together right after */
 double compfreq(std::vector<int> A, std::vector<int> B) {
   unsigned long long int numerator=0;
   long long denomA = 0.0, denomB = 0.0;
-  for (int i=0; i<19683; i++){//Used a calculator for the value because had trouble with exponents
+  for (int i=0; i<19683; i++){
     numerator += (A[i]*B[i]);
   }
 
@@ -227,6 +232,7 @@ double compfreq(std::vector<int> A, std::vector<int> B) {
   return ((double)numerator/denom);
 }
 
+//Creates the frequency of the test, then compares to all other frequencies
 int main(int argc, char *argv[]) {
   if (argc<2) {//Simple check
     throw std::runtime_error("Not enough input.");
@@ -237,6 +243,7 @@ int main(int argc, char *argv[]) {
   for (int q=1; q<argc-1; q++){
     std::vector<int> v = frequency(argv[q]);
     double check = compfreq(v, test);
+    //Takes the maximum frequency
     if (check>max){
       max=check;
       spot=q;
