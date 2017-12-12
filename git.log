@@ -1,3 +1,81 @@
+commit 615bf421c2a589ebe95663f5c64fdffc71f1bd19
+Author: Unknown <malallo@my.uri.edu>
+Date:   Mon Dec 11 17:34:59 2017 -0500
+
+    NOW the comments are added
+    
+    whoops
+
+commit 433c01268dea73ebe94d19504b69cbe39cfe3507
+Author: Unknown <malallo@my.uri.edu>
+Date:   Mon Dec 11 17:33:20 2017 -0500
+
+    THE LOG
+
+commit 3fbf8846daf43764986bb990d1d203fcdfbebcf3
+Author: Unknown <malallo@my.uri.edu>
+Date:   Mon Dec 11 17:32:21 2017 -0500
+
+    Removed useless function - Now with more comments
+    
+    Comments everywhere. One probably too detailed.
+
+commit ecfa9ca6963c0981f1ff409ba5866bf6d7981149
+Author: Unknown <malallo@my.uri.edu>
+Date:   Mon Dec 11 17:19:20 2017 -0500
+
+    Fixed variable type errors
+    
+    DO NOT COMPARE LONG LONG WITH DOUBLE
+    (also renamed the command from the compile script)
+    Re using Milestone one methods due to "improvements" failing.
+
+commit 82891cf1608f28bad744aeddfdef0c76336f6c92
+Author: Unknown <malallo@my.uri.edu>
+Date:   Mon Dec 11 16:40:50 2017 -0500
+
+    Fix frequency misread error
+    
+    still thinks there are thousands of 'zzz' in test/italian. French no longer winning
+
+commit 308c7326b85362d711853ef18356f2083d82fab8
+Author: Unknown <malallo@my.uri.edu>
+Date:   Mon Dec 11 16:02:17 2017 -0500
+
+    Added Compile. Fixed negative square roots.
+    
+    The French Keep winning
+
+commit 512298d0e2714d39f72ef0339ccac84bcd46acee
+Author: Unknown <malallo@my.uri.edu>
+Date:   Mon Dec 11 00:51:45 2017 -0500
+
+    Set up basis for comparator, added way to get correct results in main
+    
+    Comparator is created, but has only the code for the numerator. Main function sets up the test first, then compares it to each other file listed to return the best result.
+
+commit 05700bb39886f830110f43753e3348209db469fa
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Dec 10 23:06:33 2017 -0500
+
+    Actually changed to frequency function
+    
+    details mentioned in last commit, now with the proper argc check
+
+commit 508daa16ffbaf64104b69db092839c89a3bd6581
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Dec 10 23:05:17 2017 -0500
+
+    Added shell for milestone 2
+    
+    Copied code from milestone 1. Edits made to return a vector instead of a void function
+
+commit 9993eaf7699d4e78bf1612b5371b4ed247d3c477
+Author: Unknown <malallo@my.uri.edu>
+Date:   Sun Dec 3 20:59:36 2017 -0500
+
+    Logged again after forgetting to push
+
 commit 207a10fadcbfeacd1598b6824ad76335c9768ef0
 Author: Unknown <malallo@my.uri.edu>
 Date:   Sun Dec 3 20:56:59 2017 -0500
