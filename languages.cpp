@@ -234,9 +234,11 @@ double compfreq(std::vector<int> A, std::vector<int> B) {
 
 //Creates the frequency of the test, then compares to all other frequencies
 int main(int argc, char *argv[]) {
-  if (argc<2) {//Simple check
+  //Checks for proper argument count
+  if (argc<2) {
     throw std::runtime_error("Not enough input.");
   }
+
   double max=0.00;
   int spot=0;
   std::vector<int>test = frequency(argv[argc-1]);
@@ -249,5 +251,7 @@ int main(int argc, char *argv[]) {
       spot=q;
     }
   }
+
   std::cout<<argv[spot]<<std::endl;
+
 }
